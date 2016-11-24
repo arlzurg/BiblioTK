@@ -2,7 +2,6 @@ package dao;
 
 import entity.Etiqueta_libro;
 
-
 import java.sql.*;
 import java.sql.Connection;
 import java.util.ArrayList;
