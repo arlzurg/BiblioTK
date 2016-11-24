@@ -2,15 +2,15 @@
  * Created by Alejandro on 24/11/2016.
  */
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;/*
-import entity.*;
-import service.*;*/
+import com.google.gson.GsonBuilder;
+//import entity.*;
+//import service.*;
 import spark.ModelAndView;
-import spark.template.freemarker.FreeMarkerEngine;/*
+import spark.template.freemarker.FreeMarkerEngine;
 import util.DateUtil;
-import util.PacienteRequestDraw;
-import util.PsicologoRequestDraw;
-import util.SesionRequestDraw;*/
+//import util.PacienteRequestDraw;
+//import util.PsicologoRequestDraw;
+//import util.SesionRequestDraw;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -352,11 +352,10 @@ public class Main {
 
         },gson::toJson);
 
-
 */
+
 
     }
 
 
 }
-
