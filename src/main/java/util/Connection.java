@@ -1,10 +1,10 @@
 package util;
 
-import  java.net.URI;
+import java.net.URI;
 import java.net.URISyntaxException;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import com.heroku.sdk.jdbc.DatabaseUrl;
+
 public class Connection {
     private java.sql.Connection connection  = null;
 
