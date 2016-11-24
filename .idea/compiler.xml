@@ -22,10 +22,10 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="Boombayah" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="Biblioteca" target="1.8" />
       <module name="Boombayah" target="1.8" />
     </bytecodeTargetLevel>
   </component>
