@@ -2,7 +2,6 @@ package dao;
 
 import entity.Etiqueta_libro;
 
-
 import java.sql.*;
 import java.sql.Connection;
 import java.util.ArrayList;
@@ -74,7 +73,7 @@ public class Etiqueta_libroMySQLFactoryDAO implements Etiqueta_libroDAO {
             }
 
             sql +=" ORDER BY id_etiqueta_libro ASC";
-            System.out.printf(sql);
+
             ps=connection.prepareStatement(sql);
 
             if (arrParams.length > 0) {
@@ -88,7 +87,7 @@ public class Etiqueta_libroMySQLFactoryDAO implements Etiqueta_libroDAO {
                     index++;
                 }
             }
-
+            System.out.println(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Etiqueta_libro s = new Etiqueta_libro();
