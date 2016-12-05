@@ -1,34 +1,33 @@
 /**
  * Created by Alejandro on 24/11/2016.
  */
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-//import entity.*;
-//import service.*;
+import dao.Etiqueta_libroMySQLFactoryDAO;
+import entity.Etiqueta_libro;
 import spark.ModelAndView;
 import spark.template.freemarker.FreeMarkerEngine;
-import util.DateUtil;
-//import util.PacienteRequestDraw;
-//import util.PsicologoRequestDraw;
-//import util.SesionRequestDraw;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static spark.Spark.*;
 
+//import entity.*;
+//import service.*;
+//import util.PacienteRequestDraw;
+//import util.PsicologoRequestDraw;
+//import util.SesionRequestDraw;
+
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
 
         port((System.getenv("PORT") != null)?Integer.valueOf(System.getenv("PORT")):8008);
         staticFileLocation("/public");
 
-        before("/", (request, response) -> {
+        /*before("/", (request, response) -> {
             if (request.session().attribute("user") == null) {
                 response.redirect("/login");
             }
@@ -44,7 +43,7 @@ public class Main {
             if (request.session().attribute("user") == null) {
                 response.redirect("/login");
             }
-        });
+        });*/
 
         get("/hello", (req, res) -> {
             String world = "world";
@@ -89,6 +88,16 @@ public class Main {
             Map<String, Object> attributes = new HashMap<>();
             return new ModelAndView(attributes, "registrar_sesion.ftl");
         }, new FreeMarkerEngine());
+
+        //PRUEBADAO
+
+        Etiqueta_libroMySQLFactoryDAO el =new Etiqueta_libroMySQLFactoryDAO();
+        Etiqueta_libro e = new Etiqueta_libro();
+        e.setCodigo_etiqueta("125877");
+        e.setCodigo_libro("122345");
+        List<Etiqueta_libro> al = new ArrayList<Etiqueta_libro>();
+        al = el.buscar(e);
+        //System.out.println(al.get(0).getId_etiqueta_libro());
 /*
         post("/form/ingresar_paciente", (req, res) -> {
 
