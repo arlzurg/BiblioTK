@@ -11,10 +11,10 @@ public class LibroRequestDraw extends Libro {
         this.request = request;
 
 
-        if(this.request.queryParams("id_libro")!=null)
-            super.setId_libro(Integer.parseInt(this.request.queryParams("id_libro")));
-
-        super.setCodigo_libro(this.request.queryParams("codigo_libro"));
+        //if(this.request.queryParams("id_libro")!=null)
+        //    super.setId_libro(Integer.parseInt(this.request.queryParams("id_libro")));
+        if(this.request.queryParams("codigo_libro")!=null)
+            super.setCodigo_libro(Integer.parseInt(this.request.queryParams("codigo_libro")));
 
         super.setCodigo_clasificacion(this.request.queryParams("codigo_clasificacion"));
 
@@ -22,9 +22,9 @@ public class LibroRequestDraw extends Libro {
 
         super.setFormato(this.request.queryParams("formato"));
 
-        super.setISBN(this.request.queryParams("ISBN"));
+        super.setISBN(this.request.queryParams("isbn"));
 
-        super.setAutor(this.request.queryParams("Autor"));
+        super.setAutor(this.request.queryParams("autor"));
 
         super.setPie_imprenta(this.request.queryParams("pie_imprenta"));
 

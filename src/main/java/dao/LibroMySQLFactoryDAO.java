@@ -22,10 +22,10 @@ public class LibroMySQLFactoryDAO implements LibroDAO {
 	        int last = 0;
 
 	        try {
-	            psp = this.connection.prepareStatement("INSERT INTO biblioteca VALUES (NULL, ?,?,?,?,?,?,?,?,?,?,?)"
+	            psp = this.connection.prepareStatement("INSERT INTO libro VALUES (?,?,?,?,?,?,?,?,?,?,?)"
 	                    , Statement.RETURN_GENERATED_KEYS);
 
-	            psp.setString(1, libro.getCodigo_libro());
+	            psp.setInt(1, libro.getCodigo_libro());
 	            psp.setString(2, libro.getCodigo_clasificacion());
 	            psp.setString(3, libro.getTitulo());
 	            psp.setString(4, libro.getFormato());
@@ -40,7 +40,7 @@ public class LibroMySQLFactoryDAO implements LibroDAO {
 
 	            ResultSet rs = psp.getGeneratedKeys();
 	            if (rs.next()) {
-	                last = rs.getInt(0);
+	                last = rs.getInt(1);
 	            }
 
 	        } catch (SQLException e) {
@@ -62,18 +62,17 @@ public class LibroMySQLFactoryDAO implements LibroDAO {
 	            ResultSet rs = psmt.executeQuery();
 	            while (rs.next()) {
 	                Libro libro = new Libro();
-	                libro.setId_libro(rs.getInt(1));
-	                libro.setCodigo_libro(rs.getString(2));
-	                libro.setCodigo_clasificacion(rs.getString(3));
-	                libro.setTitulo(rs.getString(4));
-	                libro.setFormato(rs.getString(5));
-	                libro.setISBN(rs.getString(6));
-	                libro.setAutor(rs.getString(7));
-	                libro.setPie_imprenta(rs.getString(8));
-	                libro.setPaginas(rs.getInt(9));
-	                libro.setDescripcion(rs.getString(10));
-	                libro.setIdioma(rs.getString(11));
-	                libro.setVistas(rs.getInt(12));
+	                libro.setCodigo_libro(rs.getInt(1));
+	                libro.setCodigo_clasificacion(rs.getString(2));
+	                libro.setTitulo(rs.getString(3));
+	                libro.setFormato(rs.getString(4));
+	                libro.setISBN(rs.getString(5));
+	                libro.setAutor(rs.getString(6));
+	                libro.setPie_imprenta(rs.getString(7));
+	                libro.setPaginas(rs.getInt(8));
+	                libro.setDescripcion(rs.getString(9));
+	                libro.setIdioma(rs.getString(10));
+	                libro.setVistas(rs.getInt(11));
 	                listado.add(libro);
 	            }
 

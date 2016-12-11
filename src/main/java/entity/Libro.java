@@ -2,8 +2,7 @@ package entity;
 
 public class Libro {
 
-	int Id_libro;
-	String Codigo_libro;
+	int id_libro;
 	String Codigo_clasificacion;
 	String Titulo;
 	String Formato;
@@ -15,17 +14,11 @@ public class Libro {
 	String Idioma;
 	int Vistas;
 	
-	public int getId_libro() {
-		return Id_libro;
+	public int getCodigo_libro() {
+		return id_libro;
 	}
-	public void setId_libro(int id_libro) {
-		Id_libro = id_libro;
-	}
-	public String getCodigo_libro() {
-		return Codigo_libro;
-	}
-	public void setCodigo_libro(String codigo_libro) {
-		Codigo_libro = codigo_libro;
+	public void setCodigo_libro(int codigo_libro) {
+		id_libro = codigo_libro;
 	}
 	public String getCodigo_clasificacion() {
 		return Codigo_clasificacion;

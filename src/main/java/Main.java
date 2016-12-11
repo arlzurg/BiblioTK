@@ -1,10 +1,14 @@
 /**
  * Created by Alejandro on 24/11/2016.
  */
+
 import dao.Etiqueta_libroMySQLFactoryDAO;
 import entity.Etiqueta_libro;
+import entity.Libro;
+import service.LibroServiceImpl;
 import spark.ModelAndView;
 import spark.template.freemarker.FreeMarkerEngine;
+import util.LibroRequestDraw;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,6 +30,22 @@ public class Main {
 
         port((System.getenv("PORT") != null)?Integer.valueOf(System.getenv("PORT")):8008);
         staticFileLocation("/public");
+
+
+        get("/ingresar/libro", (req, res) -> {
+            Map<String, Object> attributes = new HashMap<>();
+            return new ModelAndView(attributes, "ingresarlibro.ftl");
+        }, new FreeMarkerEngine());
+
+        post("/form/ingresarlibro", (req, res) -> {
+            Libro libro =  new LibroRequestDraw(req);
+
+            LibroServiceImpl service = new LibroServiceImpl();
+            service.insertarLibro(libro);
+
+            res.redirect("/ingresar/libro");
+            return "OK: "+libro.getAutor();
+        });
 
         /*before("/", (request, response) -> {
             if (request.session().attribute("user") == null) {

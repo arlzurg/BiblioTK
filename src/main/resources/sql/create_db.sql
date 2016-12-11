@@ -11,6 +11,7 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
 -- Dumping database structure for biblioteca
+DROP DATABASE biblioteca;
 CREATE DATABASE IF NOT EXISTS `biblioteca` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `biblioteca`;
 
@@ -51,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `existencias` (
 
 -- Dumping structure for table biblioteca.libro
 CREATE TABLE IF NOT EXISTS `libro` (
-  `id_libro` int(11) NOT NULL,
+  `id_libro` int(11) NOT NULL AUTO_INCREMENT,
   `codigo_clasificacion` varchar(20) DEFAULT NULL,
   `titulo` varchar(45) DEFAULT NULL,
   `formato` varchar(45) DEFAULT NULL,

@@ -52,10 +52,10 @@ public class Etiqueta_libroMySQLFactoryDAO implements Etiqueta_libroDAO {
             HashMap<String,String> map = new HashMap<String,String>();
 
             if(etiqueta_libro.getCodigo_libro()!=null){
-                map.put("codigo_libro",etiqueta_libro.getCodigo_libro());
+                map.put("id_libro",etiqueta_libro.getCodigo_libro());
             }
             if(etiqueta_libro.getCodigo_etiqueta()!=null){
-                map.put("codigo_etiqueta",etiqueta_libro.getCodigo_etiqueta());
+                map.put("id_etiqueta",etiqueta_libro.getCodigo_etiqueta());
             }
 
             for (String param : map.keySet()){
@@ -92,8 +92,8 @@ public class Etiqueta_libroMySQLFactoryDAO implements Etiqueta_libroDAO {
             while (rs.next()) {
                 Etiqueta_libro s = new Etiqueta_libro();
                 s.setId_etiqueta_libro(rs.getInt("id_etiqueta_libro"));
-                s.setCodigo_libro(rs.getString("codigo_libro"));
-                s.setCodigo_etiqueta(rs.getString("codigo_etiqueta"));
+                s.setCodigo_libro(rs.getString("id_libro"));
+                s.setCodigo_etiqueta(rs.getString("id_etiqueta"));
 
                 lista.add(s);
             }
