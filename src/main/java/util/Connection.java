@@ -9,7 +9,7 @@ public class Connection {
     private java.sql.Connection connection  = null;
 
     static final String USER = "root";
-    static final String PASS = "digimon";
+    static final String PASS = "megamisama";
     static final String DB_URL = "jdbc:mysql://localhost/biblioteca";
 
 
